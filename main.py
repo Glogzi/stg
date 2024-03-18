@@ -42,5 +42,4 @@ if __name__ == "__main__":
     start = time.time()
     createFile("kys", "kys", 1000)
     endTime = time.time() - start
-    printSuccess(f"task completed in 0.2137, press enter to quit")
-    input()
+    printSuccess(f"task completed in {endTime}, press enter to quit")
