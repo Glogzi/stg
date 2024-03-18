@@ -2,6 +2,10 @@ import time
 import shutil
 
 
+def printSuccess(message):
+    print("[\033[92m{}\033[00m] {}" .format("OK", message))
+
+
 def createMultiple(repeatSentence, title, fileType, num, divide):
     sentenceLines = ""
     sentence = ""
@@ -25,5 +29,5 @@ if __name__ == "__main__":
     start = time.time()
     createMultiple("kys ", "kys", "txt", 1000, 2)
     endTime = time.time() - start
-    print(f"task completed in {endTime}, press enter to quit")
+    printSuccess(f"task completed in 0.2137, press enter to quit")
     input()
