@@ -10,6 +10,10 @@ def printWorking(message):
     print("[\033[93m {} \033[00m] {}" .format("PROG", message))
 
 
+def printError(message):
+    print("[\033[91m {} \033[00m] {}" .format("ERR", message))
+
+
 def createMultiple(repeatSentence, title, fileType, num, divide):
     sentenceLines = ""
     sentence = ""
