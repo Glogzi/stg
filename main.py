@@ -14,6 +14,14 @@ def printError(message):
     print("[\033[91m {} \033[00m] {}" .format("ERR", message))
 
 
+def copyFiles(fileName, fileType, num):
+    for filesNum in range(2, num+1):
+        printWorking(f"Coping {filesNum} file")
+        shutil.copy2(f'{fileName}.{fileType}', f'./{fileName}{filesNum}.{fileType}')
+        print(f"copied file ({filesNum}/{num})")
+        printSuccess(f"Copied {filesNum} file")
+
+
 def createFile(repeatSentence, fileName, fileType, num):
     sentenceLines = ""
     sentence = ""
@@ -29,17 +37,11 @@ def createFile(repeatSentence, fileName, fileType, num):
         file.write(sentenceLines)
         printSuccess("Created 1 file")
 
-
-def copyFiles(fileName, fileType, num):
-    for filesNum in range(2, num+1):
-        printWorking(f"Coping {filesNum} file")
-        shutil.copy2(f'{fileName}.{fileType}', f'./{fileName}{filesNum}.{fileType}')
-        print(f"copied file ({filesNum}/{num})")
-        printSuccess(f"Copied {filesNum} file")
+    copyFiles(fileName, fileType, num)
 
 
 if __name__ == "__main__":
     start = time.time()
-    createFile("kys ", "kys", 10, 10)
+    createFile("kys ", "kys", "txt", 10)
     endTime = time.time() - start
     printSuccess(f"task completed in {endTime}, press enter to quit")
