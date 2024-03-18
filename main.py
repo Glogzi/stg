@@ -40,6 +40,6 @@ def copyFiles(fileName, fileType, num):
 
 if __name__ == "__main__":
     start = time.time()
-    createFile("kys", "kys", 1000)
+    createFile("kys ", "kys", 10, 10)
     endTime = time.time() - start
     printSuccess(f"task completed in {endTime}, press enter to quit")
