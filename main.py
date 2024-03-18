@@ -31,7 +31,7 @@ def createFile(repeatSentence, fileName, fileType, num):
         sentence += repeatSentence
     for linesStatus in range(1, num + 1):
         sentenceLines += sentence + "\n"
-        print(f"created line ({linesStatus}/{num})")
+        printSuccess(f"Created line ({num}/{linesStatus})")
 
     with open(f"{fileName}.{fileType}", "w", encoding="utf-8") as file:
         file.write(sentenceLines)
