@@ -3,7 +3,11 @@ import shutil
 
 
 def printSuccess(message):
-    print("[\033[92m{}\033[00m] {}" .format("OK", message))
+    print("[\033[92m {} \033[00m] {}" .format("OK", message))
+
+
+def printWorking(message):
+    print("[\033[93m {} \033[00m] {}" .format("PROG", message))
 
 
 def createMultiple(repeatSentence, title, fileType, num, divide):
