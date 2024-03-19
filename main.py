@@ -11,14 +11,14 @@ def print_error(message):
     quit()
 
 
-def copy_files(base_file_name, file_type, num_copies):
+def copy_files(base_file_name, path, ile_type, num_copies):
     for file_num in range(2, num_copies + 1):
-        shutil.copy2(f'{base_file_name}.{file_type}', f'./{base_file_name}{file_num}.{file_type}')
+        shutil.copy2(f'{path}{base_file_name}.{file_type}', f'./{base_file_name}{file_num}.{file_type}')
         print(f"Copied file ({file_num}/{num_copies})")
         print_success(f"Copied {file_num} file")
 
 
-def create_files(repeat_sentence, file_name, file_type, num_sentence, num_lines, num_files):
+def create_files(repeat_sentence, path, file_name, file_type, num_sentence, num_lines, num_files):
     sentence_lines = ""
     sentence = ""
 
@@ -29,11 +29,11 @@ def create_files(repeat_sentence, file_name, file_type, num_sentence, num_lines,
         sentence_lines += sentence + "\n"
         print_success(f"Created line ({line_status}/{num_lines})")
 
-    with open(f"{file_name}.{file_type}", "w", encoding="utf-8") as file:
+    with open(f"{path}{file_name}.{file_type}", "w", encoding="utf-8") as file:
         file.write(sentence_lines)
         print_success("Created 1 file")
 
-    copy_files(file_name, file_type, num_files)
+    copy_files(file_name, path, file_type, num_files)
 
 
 if __name__ == "__main__":
@@ -48,6 +48,7 @@ if __name__ == "__main__":
     repeat_sentence = input("Please enter sentence to repeat > ")
     file_name = input("Please enter base file name > ")
     file_type = input("Please enter file type (without the dot) > ")
+    path = input("Please enter path for the files (with / at the end) > ")
 
     try:
         num_sentence = int(input("Please enter number of sentences in one line > "))
@@ -65,6 +66,6 @@ if __name__ == "__main__":
         print_error(err)
 
     start_time = time.time()
-    create_files(repeat_sentence, file_name, file_type, num_sentence, num_lines, num_files)
+    create_files(repeat_sentence, path, file_name, file_type, num_sentence, num_lines, num_files)
     end_time = time.time() - start_time
     print_success(f"Task completed in {end_time}, press enter to quit")
