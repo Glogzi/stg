@@ -36,7 +36,14 @@ def create_files(repeat_sentence, file_name, file_type, num_lines, num_files):
 
 
 if __name__ == "__main__":
-    print("Welcome to STG!")
+    print("""
+      _        
+  ___| |_ __ _ 
+ / __| __/ _` |
+ \__ \ || (_| |
+ |___/\__\__, |
+         |___/ \n
+""")
     repeat_sentence = input("Please enter sentence to repeat > ")
     file_name = input("Please enter base file name > ")
     file_type = input("Please enter file type (without the dot) > ")
