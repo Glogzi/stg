@@ -8,6 +8,7 @@ def print_success(message):
 
 def print_error(message):
     print("[\033[91m {} \033[00m] {}" .format("ERR", message))
+    quit()
 
 
 def copy_files(base_file_name, file_type, num_copies):
@@ -47,9 +48,21 @@ if __name__ == "__main__":
     repeat_sentence = input("Please enter sentence to repeat > ")
     file_name = input("Please enter base file name > ")
     file_type = input("Please enter file type (without the dot) > ")
-    num_sentence = int(input("Please enter number of sentences in one line"))
-    num_lines = int(input("Please enter number of lines in one file > "))
-    num_files = int(input("Please enter number of files > "))
+
+    try:
+        num_sentence = int(input("Please enter number of sentences in one line"))
+    except Exception as err:
+        print_error(err)
+
+    try:
+        num_lines = int(input("Please enter number of lines in one file > "))
+    except Exception as err:
+        print_error(err)
+
+    try:
+        num_files = int(input("Please enter number of files > "))
+    except Exception as err:
+        print_error(err)
 
     start_time = time.time()
     create_files(repeat_sentence, file_name, file_type, num_sentence, num_lines, num_files)
