@@ -17,25 +17,32 @@ def copyFiles(fileName, fileType, num):
         printSuccess(f"Copied {filesNum} file")
 
 
-def createFile(repeatSentence, fileName, fileType, num):
+def createFiles(repeatSentence, fileName, fileType, lineNumber, fileNumber):
     sentenceLines = ""
     sentence = ""
 
-    for wordsStatus in range(1, num + 1):
+    for wordsStatus in range(1, lineNumber + 1):
         sentence += repeatSentence
-    for linesStatus in range(1, num + 1):
+    for linesStatus in range(1, lineNumber + 1):
         sentenceLines += sentence + "\n"
-        printSuccess(f"Created line ({linesStatus}/{num})")
+        printSuccess(f"Created line ({linesStatus}/{lineNumber})")
 
     with open(f"{fileName}.{fileType}", "w", encoding="utf-8") as file:
         file.write(sentenceLines)
         printSuccess("Created 1 file")
 
-    copyFiles(fileName, fileType, num)
+    copyFiles(fileName, fileType, fileNumber)
 
 
 if __name__ == "__main__":
+    print("Walcome to STG!")
+    repeatSentence = input("Please enter sentence to repeat > ")
+    fileName = input("Please enter file name > ")
+    fileType = input("Please enter file type (witout the dot) > ")
+    lineNumber = int(input("Please enter number of lines in one file > "))
+    fileNumber = int(input("Please enter number of files > "))
+
     start = time.time()
-    createFile("kys ", "kys", "txt", 10)
+    createFiles(repeatSentence, fileName, fileType, lineNumber, fileNumber)
     endTime = time.time() - start
     printSuccess(f"task completed in {endTime}, press enter to quit")
