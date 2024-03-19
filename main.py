@@ -23,7 +23,7 @@ def create_files(repeat_sentence, file_name, file_type, num_sentence, num_lines,
     sentence = ""
 
     for word_status in range(1, num_sentence + 1):
-        sentence += repeat_sentence
+        sentence += repeat_sentence + " "
 
     for line_status in range(1, num_lines + 1):
         sentence_lines += sentence + "\n"
@@ -50,7 +50,7 @@ if __name__ == "__main__":
     file_type = input("Please enter file type (without the dot) > ")
 
     try:
-        num_sentence = int(input("Please enter number of sentences in one line"))
+        num_sentence = int(input("Please enter number of sentences in one line > "))
     except Exception as err:
         print_error(err)
 
