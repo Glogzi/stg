@@ -13,7 +13,7 @@ def print_error(message):
 
 def copy_files(base_file_name, path, ile_type, num_copies):
     for file_num in range(2, num_copies + 1):
-        shutil.copy2(f'{path}{base_file_name}.{file_type}', f'./{base_file_name}{file_num}.{file_type}')
+        shutil.copy2(f"{path}{base_file_name}.{file_type}", f"{path}{base_file_name}{file_num}.{file_type}")
         print(f"Copied file ({file_num}/{num_copies})")
         print_success(f"Copied {file_num} file")
 
